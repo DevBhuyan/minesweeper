@@ -278,8 +278,8 @@ def create_layout(opt):
     for i in range(2):
         for j in range(2):
             layout_buttons[i][j].destroy()
-            
-    base_arr, numbers, num_mines = init()
+    
+    start()
     
     return base_arr, numbers, num_mines
 
@@ -296,8 +296,7 @@ def start():
     global base_arr
     global numbers
     
-    root = tk.Tk()
-    root.title('Minesweeper')
+    base_arr, numbers, num_mines = init()
 
     for i in range(x_size):
         root.rowconfigure(i, weight=1)
@@ -329,7 +328,6 @@ def start():
     restart_button = tk.Button(root, height=2, text="Restart", font=("Arial", 20), command=restart_game)
     restart_button.grid(row=x_size + 1, columnspan=y_size, sticky="ew")
     
-    root.mainloop()
 
 def restart_game():
     global buttons
@@ -349,13 +347,6 @@ def restart_game():
 
     start()
 
-    start_stopwatch()
-    flags_label.config(text="Flags: 0 / {}".format(num_mines))
+    flags_label.config(text="Mines caught: 0 / {}".format(num_mines))
 
 choose_layout()
-
-# FIXME: REMOVE LATER
-if x_size is not None:
-    print('Size set!', x_size)
-    
-start()

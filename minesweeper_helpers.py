@@ -2,6 +2,24 @@ import numpy as np
 from random import randint
 
 def generate_mines(x_size, y_size, num_mines):
+    '''
+    
+
+    Parameters
+    ----------
+    x_size : TYPE
+        DESCRIPTION.
+    y_size : TYPE
+        DESCRIPTION.
+    num_mines : TYPE
+        DESCRIPTION.
+
+    Returns
+    -------
+    base_arr : TYPE
+        DESCRIPTION.
+
+    '''
 
     base_arr = np.zeros((x_size+2, y_size+2), dtype=np.uint8)
 
@@ -12,6 +30,24 @@ def generate_mines(x_size, y_size, num_mines):
     return base_arr
 
 def generate_hidden_numbers(base_arr, x_size, y_size):
+    '''
+        
+
+    Parameters
+    ----------
+    base_arr : TYPE
+        DESCRIPTION.
+    x_size : TYPE
+        DESCRIPTION.
+    y_size : TYPE
+        DESCRIPTION.
+
+    Returns
+    -------
+    numbers : TYPE
+        DESCRIPTION.
+
+    '''
     numbers = np.zeros((x_size+2, y_size+2), dtype=np.uint8)
 
     for i in range(1, x_size+1):
